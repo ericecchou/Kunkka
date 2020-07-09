@@ -5,10 +5,10 @@
 
   <?php mutheme_head(); ?>
     <link rel="canonical" href="<?php echo 'https://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] ?>" />
-	
+    
 </head>
 
-	<body <?php mutheme_body_class(); ?>>
+    <body <?php mutheme_body_class(); ?>>
 <div id="header">
     <div class="container clearfix">
 <?php
@@ -21,7 +21,7 @@ echo '<h2 class="logo">';
  <a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?>" rel="home">
                 <img src="<?php echo mutheme_image( 'logo.png' ); ?>" alt="<?php bloginfo( 'name' ); ?>" width="102"
                      height="30"/>
-	             </a>
+                 </a>
 <?php
 if (is_home()) {
 echo '</h1>';
