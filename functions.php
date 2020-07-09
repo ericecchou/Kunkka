@@ -145,8 +145,8 @@ function get_ssl_avatar($avatar) {
         return false;
     }
 }
-	add_filter('get_avatar', 'get_ssl_avatar');
-	
+    add_filter('get_avatar', 'get_ssl_avatar');
+    
 //禁止站内pingback
 function no_self_ping( &$links ) {
     $home = get_option( 'home' );
@@ -155,87 +155,87 @@ function no_self_ping( &$links ) {
 }
 add_action( 'pre_ping', 'no_self_ping' );
 //移除预获取DNS
-	function remove_dns_prefetch( $hints, $relation_type ) {
-		if ( 'dns-prefetch' === $relation_type ) { 
-		return array_diff( wp_dependencies_unique_hosts(), $hints ); } return $hints; }
-		add_filter( 'wp_resource_hints', 'remove_dns_prefetch', 10, 2 );
-		
-	remove_action('admin_print_scripts','print_emoji_detection_script');
-	remove_action('admin_print_styles','print_emoji_styles');
-	remove_action('wp_head','print_emoji_detection_script',	7);
-	remove_action('wp_print_styles','print_emoji_styles');
-	remove_action('embed_head','print_emoji_detection_script');
-	remove_filter('the_content_feed','wp_staticize_emoji');
-	remove_filter('comment_text_rss','wp_staticize_emoji');
-	remove_filter('wp_mail','wp_staticize_emoji_for_email');
-	remove_action( 'wp_head', 'feed_links', 2 ); //移除feed
-	remove_action( 'wp_head', 'feed_links_extra', 3 ); //移除feed
-	remove_action( 'wp_head', 'wp_generator' ); //移除WordPress版本
-	add_filter( 'emoji_svg_url', '__return_false' ); //DNS EMOJI
-	remove_action('rest_api_init', 'wp_oembed_register_route'); //EMbed
-	remove_filter('rest_pre_serve_request', '_oembed_rest_pre_serve_request', 10, 4);
-	remove_filter('oembed_dataparse', 'wp_filter_oembed_result', 10 );
-	remove_filter('oembed_response_data',   'get_oembed_response_data_rich',  10, 4);
-	remove_action('wp_head', 'wp_oembed_add_discovery_links');
-	remove_action('wp_head', 'wp_oembed_add_host_js');//EMbed结束
-	add_filter('xmlrpc_enabled', '__return_false');
-	// add_filter('use_block_editor_for_post', '__return_false');//禁用古腾堡
-	// remove_action( 'wp_enqueue_scripts', 'wp_common_block_scripts_and_styles' );//禁用古腾堡前端
+    function remove_dns_prefetch( $hints, $relation_type ) {
+        if ( 'dns-prefetch' === $relation_type ) { 
+        return array_diff( wp_dependencies_unique_hosts(), $hints ); } return $hints; }
+        add_filter( 'wp_resource_hints', 'remove_dns_prefetch', 10, 2 );
+        
+    remove_action('admin_print_scripts','print_emoji_detection_script');
+    remove_action('admin_print_styles','print_emoji_styles');
+    remove_action('wp_head','print_emoji_detection_script', 7);
+    remove_action('wp_print_styles','print_emoji_styles');
+    remove_action('embed_head','print_emoji_detection_script');
+    remove_filter('the_content_feed','wp_staticize_emoji');
+    remove_filter('comment_text_rss','wp_staticize_emoji');
+    remove_filter('wp_mail','wp_staticize_emoji_for_email');
+    remove_action( 'wp_head', 'feed_links', 2 ); //移除feed
+    remove_action( 'wp_head', 'feed_links_extra', 3 ); //移除feed
+    remove_action( 'wp_head', 'wp_generator' ); //移除WordPress版本
+    add_filter( 'emoji_svg_url', '__return_false' ); //DNS EMOJI
+    remove_action('rest_api_init', 'wp_oembed_register_route'); //EMbed
+    remove_filter('rest_pre_serve_request', '_oembed_rest_pre_serve_request', 10, 4);
+    remove_filter('oembed_dataparse', 'wp_filter_oembed_result', 10 );
+    remove_filter('oembed_response_data',   'get_oembed_response_data_rich',  10, 4);
+    remove_action('wp_head', 'wp_oembed_add_discovery_links');
+    remove_action('wp_head', 'wp_oembed_add_host_js');//EMbed结束
+    add_filter('xmlrpc_enabled', '__return_false');
+    // add_filter('use_block_editor_for_post', '__return_false');//禁用古腾堡
+    // remove_action( 'wp_enqueue_scripts', 'wp_common_block_scripts_and_styles' );//禁用古腾堡前端
 
-	add_action('admin_menu', function (){
-	global $menu, $submenu;
-	// 移除设置菜单下的隐私子菜单。
-	unset($submenu['options-general.php'][45]);
-	// 移除工具菜单下的相关页面
-	remove_action( 'admin_menu', '_wp_privacy_hook_requests_page' );
-	remove_filter( 'wp_privacy_personal_data_erasure_page', 'wp_privacy_process_personal_data_erasure_page', 10, 5 );
-	remove_filter( 'wp_privacy_personal_data_export_page', 'wp_privacy_process_personal_data_export_page', 10, 7 );
-	remove_filter( 'wp_privacy_personal_data_export_file', 'wp_privacy_generate_personal_data_export_file', 10 );
-	remove_filter( 'wp_privacy_personal_data_erased', '_wp_privacy_send_erasure_fulfillment_notification', 10 );
+    add_action('admin_menu', function (){
+    global $menu, $submenu;
+    // 移除设置菜单下的隐私子菜单。
+    unset($submenu['options-general.php'][45]);
+    // 移除工具菜单下的相关页面
+    remove_action( 'admin_menu', '_wp_privacy_hook_requests_page' );
+    remove_filter( 'wp_privacy_personal_data_erasure_page', 'wp_privacy_process_personal_data_erasure_page', 10, 5 );
+    remove_filter( 'wp_privacy_personal_data_export_page', 'wp_privacy_process_personal_data_export_page', 10, 7 );
+    remove_filter( 'wp_privacy_personal_data_export_file', 'wp_privacy_generate_personal_data_export_file', 10 );
+    remove_filter( 'wp_privacy_personal_data_erased', '_wp_privacy_send_erasure_fulfillment_notification', 10 );
  
-	// Privacy policy text changes check.
-	remove_action( 'admin_init', array( 'WP_Privacy_Policy_Content', 'text_change_check' ), 100 );
+    // Privacy policy text changes check.
+    remove_action( 'admin_init', array( 'WP_Privacy_Policy_Content', 'text_change_check' ), 100 );
  
-	// Show a "postbox" with the text suggestions for a privacy policy.
-	remove_action( 'edit_form_after_title', array( 'WP_Privacy_Policy_Content', 'notice' ) );
+    // Show a "postbox" with the text suggestions for a privacy policy.
+    remove_action( 'edit_form_after_title', array( 'WP_Privacy_Policy_Content', 'notice' ) );
  
-	// Add the suggested policy text from WordPress.
-	remove_action( 'admin_init', array( 'WP_Privacy_Policy_Content', 'add_suggested_content' ), 1 );
+    // Add the suggested policy text from WordPress.
+    remove_action( 'admin_init', array( 'WP_Privacy_Policy_Content', 'add_suggested_content' ), 1 );
  
-	// Update the cached policy info when the policy page is updated.
-	remove_action( 'post_updated', array( 'WP_Privacy_Policy_Content', '_policy_page_updated' ) );
+    // Update the cached policy info when the policy page is updated.
+    remove_action( 'post_updated', array( 'WP_Privacy_Policy_Content', '_policy_page_updated' ) );
 },9);
 
 //复制出提示
 // function zm_copyright_tips() {
-// 	echo '<script>document.body.oncopy=function(){alert("复制成功！转载请务必保留原文链接，申明来源，谢谢合作！");}</script>';
+//     echo '<script>document.body.oncopy=function(){alert("复制成功！转载请务必保留原文链接，申明来源，谢谢合作！");}</script>';
 // }
 // add_action( 'wp_footer', 'zm_copyright_tips', 100 );
-// //评论添加验证码
-// function spam_protection_math(){
-// 	$num1=rand(0,9);
-// 	$num2=rand(0,9);
-// 	echo "<label for=\"math\">人机验证:<i>$num1 + $num2 = ?</i>  </label>\n ";
-// 	echo "<input type=\"text\" name=\"sum\" class=\"text\" value=\"\" size=\"25\" tabindex=\"4\">\n";
-// 	echo "<input type=\"hidden\" name=\"num1\" value=\"$num1\">\n";
-// 	echo "<input type=\"hidden\" name=\"num2\" value=\"$num2\">";
-// }
-// function spam_protection_pre($commentdata){
-// 	$sum=$_POST['sum'];
-// 	switch($sum){
-// 		case $_POST['num1']+$_POST['num2']:
-// 		break;
-// 		case null:
-// 		wp_die('对不起: 请输入验证码。<a href="javascript:history.back(-1)">返回上一页</a>','评论失败');
-// 		break;
-// 		default:
-// 		wp_die('对不起: 验证码错误，请<a href="javascript:history.back(-1)">返回</a>重试。','评论失败');
-// 	}
-// 	return $commentdata;
-// }
-// if($comment_data['comment_type']==''){
-// 	add_filter('preprocess_comment','spam_protection_pre');
-// }
+//评论添加验证码
+function spam_protection_math(){
+    $num1=rand(0,9);
+    $num2=rand(0,9);
+    echo "<label for=\"math\">人机验证:<i>$num1 + $num2 = ?</i>  </label>\n ";
+    echo "<input type=\"text\" name=\"sum\" class=\"text\" value=\"\" size=\"25\" tabindex=\"4\">\n";
+    echo "<input type=\"hidden\" name=\"num1\" value=\"$num1\">\n";
+    echo "<input type=\"hidden\" name=\"num2\" value=\"$num2\">";
+}
+function spam_protection_pre($commentdata){
+    $sum=$_POST['sum'];
+    switch($sum){
+        case $_POST['num1']+$_POST['num2']:
+        break;
+        case null:
+        wp_die('对不起: 请输入验证码。<a href="javascript:history.back(-1)">返回上一页</a>','评论失败');
+        break;
+        default:
+        wp_die('对不起: 验证码错误，请<a href="javascript:history.back(-1)">返回</a>重试。','评论失败');
+    }
+    return $commentdata;
+}
+if($comment_data['comment_type']==''){
+    add_filter('preprocess_comment','spam_protection_pre');
+}
 /**
 * 禁用emoji表情
 */
