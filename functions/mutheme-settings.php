@@ -53,7 +53,8 @@ class Mutheme_settings {
                 'value' => array(
                     0 => '不使用',
                     1 => '七牛',
-                    2 => '又拍'
+                    2 => '又拍',
+                    3 => '阿里云 OSS'
                 ),
                 'label' => '七牛用户勾选即可,又拍用户需要新建规则: <code>!260x260</code>'
             ),

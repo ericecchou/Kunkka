@@ -343,6 +343,7 @@ function mutheme_cdn( $obj, $width = 0, $height = 0, $is_avatar = false ) {
         }
 
     } else if ( $cdn_type == 1 ) {
+
         //qiniu cdn service
         $url .= "?imageView/1/w/{$width}/h/{$height}/q/100";
 
@@ -350,6 +351,9 @@ function mutheme_cdn( $obj, $width = 0, $height = 0, $is_avatar = false ) {
         //youpai cdn service
         $url .= "!{$width}x{$height}";
 
+    } else if ( $cdn_type == 3 ) {        
+        // 阿里云 OSS 
+        $url .= "?x-oss-process=image/resize,m_fill,h_100,w_120";
     }
 
     return $url;
