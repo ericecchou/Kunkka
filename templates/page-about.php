@@ -11,8 +11,8 @@ get_header(); ?>
             <br>
             <div class="aboutDiv">
             <span>
-                <a href="https://github.com/AgateLee" target="_blank"><i class="fa fa-github fa-2x icon-github" onclick=""></i></a>&nbsp;&nbsp;
-                <a href="http://weibo.com/agatelee/" target="_blank"><i class="fa fa-weibo fa-2x icon-weibo" onclick=""></i></a>&nbsp;&nbsp;
+                <a href="https://github.com/ericecchou" target="_blank"><i class="fa fa-github fa-2x icon-github" onclick=""></i></a>&nbsp;&nbsp;
+                <a href="http://weibo.com/719951113/" target="_blank"><i class="fa fa-weibo fa-2x icon-weibo" onclick=""></i></a>&nbsp;&nbsp;
                 <span class="weixin">
                     <span class="weixin_box">
                         <span class="fa fa-weixin fa-2x icon-weixin" onclick="">
@@ -26,7 +26,7 @@ get_header(); ?>
             </span>
             </div>
             <div class="aboutDiv">
-                <pre class="hollow" onclick="">北京邮电大学在读</pre>
+                <pre class="hollow" onclick="">产品经理</pre>
                 <pre class="hollow" onclick="">文档&nbsp;美工&nbsp;程序员</pre>
             </div>
                 
