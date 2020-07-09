@@ -20,7 +20,7 @@ class Mutheme_widget_populars extends WP_Widget {
         $limit = $limit ? $limit : 10;
         ?>
         <div class="widget widget-populars">
-            <h3><?php _e( 'Popular posts', MUTHEME_NAME ); ?></h3>
+            <h3><?php _e( '热门 · Popular Posts', MUTHEME_NAME ); ?></h3>
             <ul class="list">
                 <?php
                 $args  = array(
@@ -171,7 +171,7 @@ class Mutheme_widget_comment extends WP_Widget {
         $limit = $limit ? $limit : 5;
         ?>
         <div class="widget widget-comment">
-            <h3><?php _e( 'Latest comments', MUTHEME_NAME ); ?></h3>
+            <h3><?php _e( '最新评论 · Latest Comments', MUTHEME_NAME ); ?></h3>
             <ul>
                 <?php
                 $comments = get_comments( "user_id=0&number={$limit}&status=approve&type=comment" );
@@ -240,7 +240,7 @@ class Mutheme_widget_links extends WP_Widget {
         $limit = $limit ? $limit : 10;
         ?>
         <div class="widget widget-links">
-            <h3><?php _e( 'Links', MUTHEME_NAME ); ?></h3>
+            <h3><?php _e( '友情链接 · Links', MUTHEME_NAME ); ?></h3>
             <ul>
                 <?php $bookmarks = get_bookmarks( 'limit=' . $limit );
                 if ( ! empty( $bookmarks ) ) {
