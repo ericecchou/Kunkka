@@ -34,9 +34,9 @@ echo '</h2>';
                 <li class="gnli <?php if ( is_home() ) {
                     echo "current";
                 } ?>">
-                    <a class="gna" href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?>">
+<!--                     <a class="gna" href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?>">
                         <span><?php _e( 'Home', MUTHEME_NAME ); ?></span>
-                    </a>
+                    </a> -->
                 </li>
                 <?php if ( ! mutheme_settings( 'disable_global_navigation' ) ) { ?>
                     <li class="gnli dropdown<?php if ( is_single() ) {
@@ -93,7 +93,7 @@ echo '</h2>';
             ) ); ?>
         </div>
         <form method="get" class="search-form" action="<?php bloginfo( 'home' ); ?>/">
-            <input type="text" name="s" class="search-input" placeholder="<?php _e( 'Search keyword', MUTHEME_NAME ); ?>" />
+            <input type="text" name="s" class="search-input" placeholder="<?php _e( '搜索', MUTHEME_NAME ); ?>" />
             <button type="submit" class="search-submit">
                 <span class="mutheme-search"></span>
             </button>
