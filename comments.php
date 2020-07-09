@@ -93,7 +93,7 @@
 
                                       <div style="display:inline-block;float:right">
 										                                          <?php spam_protection_math();?>
-                                        <input id="submit" type="submit" name="submit" value="<?php _e( 'Submit / Ctrl+Enter', MUTHEME_NAME ); ?>" class="submit" /> </div>
+                                        <input id="submit" type="submit" name="submit" value="<?php _e( '提交评论', MUTHEME_NAME ); ?>" class="submit" /> </div>
                                       <?php comment_id_fields(); ?>
                                         <?php do_action( 'comment_form', $post->ID ); ?>
                     </form>
