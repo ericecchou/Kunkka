@@ -207,35 +207,35 @@ add_action( 'pre_ping', 'no_self_ping' );
 },9);
 
 //复制出提示
-function zm_copyright_tips() {
-	echo '<script>document.body.oncopy=function(){alert("复制成功！转载请务必保留原文链接，申明来源，谢谢合作！");}</script>';
-}
-add_action( 'wp_footer', 'zm_copyright_tips', 100 );
-//评论添加验证码
-function spam_protection_math(){
-	$num1=rand(0,9);
-	$num2=rand(0,9);
-	echo "<label for=\"math\">人机验证:<i>$num1 + $num2 = ?</i>  </label>\n ";
-	echo "<input type=\"text\" name=\"sum\" class=\"text\" value=\"\" size=\"25\" tabindex=\"4\">\n";
-	echo "<input type=\"hidden\" name=\"num1\" value=\"$num1\">\n";
-	echo "<input type=\"hidden\" name=\"num2\" value=\"$num2\">";
-}
-function spam_protection_pre($commentdata){
-	$sum=$_POST['sum'];
-	switch($sum){
-		case $_POST['num1']+$_POST['num2']:
-		break;
-		case null:
-		wp_die('对不起: 请输入验证码。<a href="javascript:history.back(-1)">返回上一页</a>','评论失败');
-		break;
-		default:
-		wp_die('对不起: 验证码错误，请<a href="javascript:history.back(-1)">返回</a>重试。','评论失败');
-	}
-	return $commentdata;
-}
-if($comment_data['comment_type']==''){
-	add_filter('preprocess_comment','spam_protection_pre');
-}
+// function zm_copyright_tips() {
+// 	echo '<script>document.body.oncopy=function(){alert("复制成功！转载请务必保留原文链接，申明来源，谢谢合作！");}</script>';
+// }
+// add_action( 'wp_footer', 'zm_copyright_tips', 100 );
+// //评论添加验证码
+// function spam_protection_math(){
+// 	$num1=rand(0,9);
+// 	$num2=rand(0,9);
+// 	echo "<label for=\"math\">人机验证:<i>$num1 + $num2 = ?</i>  </label>\n ";
+// 	echo "<input type=\"text\" name=\"sum\" class=\"text\" value=\"\" size=\"25\" tabindex=\"4\">\n";
+// 	echo "<input type=\"hidden\" name=\"num1\" value=\"$num1\">\n";
+// 	echo "<input type=\"hidden\" name=\"num2\" value=\"$num2\">";
+// }
+// function spam_protection_pre($commentdata){
+// 	$sum=$_POST['sum'];
+// 	switch($sum){
+// 		case $_POST['num1']+$_POST['num2']:
+// 		break;
+// 		case null:
+// 		wp_die('对不起: 请输入验证码。<a href="javascript:history.back(-1)">返回上一页</a>','评论失败');
+// 		break;
+// 		default:
+// 		wp_die('对不起: 验证码错误，请<a href="javascript:history.back(-1)">返回</a>重试。','评论失败');
+// 	}
+// 	return $commentdata;
+// }
+// if($comment_data['comment_type']==''){
+// 	add_filter('preprocess_comment','spam_protection_pre');
+// }
 /**
 * 禁用emoji表情
 */
