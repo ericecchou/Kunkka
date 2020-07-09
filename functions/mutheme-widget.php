@@ -39,7 +39,7 @@ class Mutheme_widget_populars extends WP_Widget {
                             <a href="<?php the_permalink() ?>" rel="bookmark"
                                title="<?php the_title(); ?>"><?php the_title(); ?></a>
                             <?php if ( function_exists( 'the_views' ) ) { ?>
-                                <span><?php echo mutheme_views_count(); ?></span>
+                                <!-- <span><?php echo mutheme_views_count(); ?></span> -->
                             <?php } ?>
                         </p>
                     </li>
